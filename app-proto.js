@@ -30,14 +30,20 @@ Counter.prototype.increase = function () {
   this.value++;
   this.valueDOM.textContent = this.value;
 };
+
 Counter.prototype.decrease = function () {
-  this.value--;
-  this.valueDOM.textContent = this.value;
+  // Ensure value doesn't go below 0
+  if (this.value > 0) {
+    this.value--;
+    this.valueDOM.textContent = this.value;
+  }
 };
+
 Counter.prototype.reset = function () {
   this.value = 0;
   this.valueDOM.textContent = this.value;
 };
 
+// Initialize counters
 const firstCounter = new Counter(getElement('.first-counter'), 100);
 const secondCounter = new Counter(getElement('.second-counter'), 200);
