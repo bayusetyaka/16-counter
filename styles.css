@@ -1,0 +1,137 @@
+/* General Styles */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(45deg, #ff6f61, #ffcc00, #1e90ff, #32cd32);
+  background-size: 300% 300%;
+  animation: gradientBG 8s ease infinite;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container Styles */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 5px dashed #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  width: 300px;
+  position: relative;
+  animation: popIn 1s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Counter Value Styles */
+.value {
+  display: block;
+  font-size: 3rem;
+  margin: 20px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ff6f61;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background: linear-gradient(45deg, #ff6f61, #32cd32);
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: linear-gradient(45deg, #32cd32, #1e90ff);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* Specific Button Colors */
+.decrease {
+  background: linear-gradient(45deg, #e74c3c, #ff6f61);
+}
+
+.reset {
+  background: linear-gradient(45deg, #f39c12, #ffcc00);
+}
+
+.increase {
+  background: linear-gradient(45deg, #1e90ff, #32cd32);
+}
+
+/* Floating Confetti Animation */
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  animation: confetti 5s infinite ease-in-out;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 30%;
+  width: 10px;
+  height: 10px;
+  background: #ff6f61;
+  border-radius: 50%;
+  animation: confetti 6s infinite ease-in-out;
+}
